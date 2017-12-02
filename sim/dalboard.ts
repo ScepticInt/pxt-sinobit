@@ -4,7 +4,7 @@ namespace pxsim {
     export class DalBoard extends CoreBoard {
         // state & update logic for component services
         ledMatrixState: LedMatrixState;
-        edgeConnectorState: EdgeConnectorState;
+       // edgeConnectorState: EdgeConnectorState;
         serialState: SerialState;
         accelerometerState: AccelerometerState;
         compassState: CompassState;
@@ -32,6 +32,7 @@ namespace pxsim {
                 BUTTON_EVT_UP: DAL.MICROBIT_BUTTON_EVT_UP,
                 BUTTON_EVT_CLICK: DAL.MICROBIT_BUTTON_EVT_CLICK
             });
+            /*
             this.builtinParts["edgeconnector"] = this.edgeConnectorState = new EdgeConnectorState({
                 pins: [
                     DAL.MICROBIT_ID_IO_P0,
@@ -63,6 +64,7 @@ namespace pxsim {
                     "P3": DAL.MICROBIT_ID_IO_P3
                 }
             });
+            */
             this.builtinParts["radio"] = this.radioState = new RadioState(runtime);
             this.builtinParts["accelerometer"] = this.accelerometerState = new AccelerometerState(runtime);
             this.builtinParts["serial"] = this.serialState = new SerialState();
@@ -70,7 +72,7 @@ namespace pxsim {
             this.builtinParts["lightsensor"] = this.lightSensorState = new LightSensorState();
             this.builtinParts["compass"] = this.compassState = new CompassState();
             this.builtinParts["neopixel"] = this.neopixelState = new NeoPixelState();
-            this.builtinParts["microservo"] = this.edgeConnectorState;
+          //  this.builtinParts["microservo"] = this.edgeConnectorState;
 
             this.builtinVisuals["buttonpair"] = () => new visuals.ButtonPairView();
             this.builtinVisuals["ledmatrix"] = () => new visuals.LedMatrixView();

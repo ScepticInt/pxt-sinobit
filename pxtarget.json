@@ -1,9 +1,9 @@
 {
-    "id": "microbit",
-    "nickname": "microbit",
-    "name": "makecode.microbit.org",
-    "title": "Microsoft MakeCode for micro:bit",
-    "description": "A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode.",
+    "id": "Sinobit",
+    "nickname": "Sinobit",
+    "name": "makecode.sinobit.org",
+    "title": "Microsoft MakeCode for Sino:bit",
+    "description": "A Blocks / JavaScript code editor for the Sino:bit powered by Microsoft MakeCode.",
     "corepkg": "core",
     "bundleddirs": [
         "libs/core",
@@ -215,7 +215,7 @@
     },
     "appTheme": {
         "accentColor": "#5C005C",
-        "logoUrl": "https://microbit.org/code/",
+        "logoUrl": "https://sinobit.org/code/",
         "logo": "./static/logo.portrait.white.svg",
         "docsLogo": "./static/logo.square.white.svg",
         "portraitLogo": "./static/logo.square.white.svg",
@@ -226,13 +226,13 @@
         "organizationUrl": "https://makecode.com/",
         "organizationLogo": "./static/Microsoft-logo_rgb_c-gray-square.png",
         "organizationWideLogo": "./static/Microsoft-logo_rgb_c-white.png",
-        "homeUrl": "https://makecode.microbit.org/",
-        "embedUrl": "https://makecode.microbit.org/",
-        "shareUrl": "https://makecode.microbit.org/",
+        "homeUrl": "https://makecode.sinobit.org/",
+        "embedUrl": "https://makecode.sinobit.org/",
+        "shareUrl": "https://makecode.sinobit.org/",
         "privacyUrl": "https://makecode.com/privacy",
         "termsOfUseUrl": "https://makecode.com/termsofuse",
         "githubUrl": "https://github.com/Microsoft/pxt-microbit",
-        "legacyDomain": "pxt.microbit.org",
+        "legacyDomain": "pxt.sinobit.org",
         "galleries": {
             "Projects": "projects",
             "Examples": "examples"
@@ -240,17 +240,17 @@
         "projectGallery": "projects",
         "exampleGallery": "examples",
         "crowdinProject": "kindscript",
-        "boardName": "micro:bit",
+        "boardName": "sino:bit",
         "driveDisplayName": "MICROBIT",
         "windowsStoreLink": "https://www.microsoft.com/store/apps/9pjc7sv48lcx",
         "sideDoc": "tutorials/getting-started",
-        "feedbackUrl": "https://www.research.net/r/MCmicro",
+        "feedbackUrl": "",
         "appStoreID": "1092687276",
         "mobileSafariDownloadProtocol": "microbithex://?data",
         "extendEditor": true,
         "docMenu": [{
                 "name": "Support",
-                "path": "https://support.microbit.org/"
+                "path": "https://support.sinobit.org/"
             },
             {
                 "name": "Getting started",

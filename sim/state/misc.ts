@@ -108,9 +108,12 @@ namespace pxsim.pins {
     }
 
     export function pulseIn(name: number, value: number, maxDuration: number): number {
+      /*
         let pin = getPin(name);
         if (!pin) return 0;
 
+        return 5000;
+        */
         return 5000;
     }
 
@@ -142,7 +145,8 @@ namespace pxsim.pins {
 
     // this likely shouldn't be called
     export function getPinAddress(name: number) {
-        return getPin(name)
+      /*  return getPin(name) */
+
     }
 
     export function setEvents(name: number, event: number) {

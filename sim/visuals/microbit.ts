@@ -115,7 +115,7 @@ namespace pxsim.visuals {
 
         /* wireframe */
         .sim-wireframe * {
-            fill: none;
+            
             stroke: black;
         }
         .sim-wireframe .sim-display,
@@ -135,9 +135,12 @@ namespace pxsim.visuals {
             stroke: none;
             fill: #777;
         }
-        .sim-wireframe .sim-board {
+       
+        sim-board {
             stroke-width: 2px;
+            fill: #4D90FE;
         }
+
         *:focus {
             outline: none;
         }
@@ -148,6 +151,12 @@ namespace pxsim.visuals {
         .sim-light-level-button:focus {
             stroke: #4D90FE;
             stroke-width: 5px !important;
+        }
+        .sim-bg {
+            stroke-width: 2px;
+            fill: #F00000;
+            stroke: #9A916C;
+          
         }
         .no-drag, .sim-text, .sim-text-pin {
             user-drag: none;
@@ -352,7 +361,8 @@ namespace pxsim.visuals {
         private updateTheme() {
             let theme = this.props.theme;
 
-            svg.fill(this.display, theme.display);
+            //svg.fill(this.display, theme.display);
+            
             svg.fills(this.leds, theme.ledOn);
             svg.fills(this.ledsOuter, theme.ledOff);
             svg.fills(this.buttonsOuter.slice(0, 2), theme.buttonOuter);
@@ -613,7 +623,7 @@ namespace pxsim.visuals {
             let state = this.board;
             if (!state) return;
 
-            state.edgeConnectorState.pins.forEach((pin, i) => this.updatePin(pin, i));
+          //  state.edgeConnectorState.pins.forEach((pin, i) => this.updatePin(pin, i));
         }
 
         private updateLightLevel() {
@@ -735,29 +745,59 @@ namespace pxsim.visuals {
             for (let i = 0; i < 3; ++i) svg.child(merge, "feMergeNode", { in: "glow" })
 
             // outline
-            svg.path(this.g, "sim-board", "M498,31.9C498,14.3,483.7,0,466.1,0H31.9C14.3,0,0,14.3,0,31.9v342.2C0,391.7,14.3,406,31.9,406h434.2c17.6,0,31.9-14.3,31.9-31.9V31.9z M14.3,206.7c-2.7,0-4.8-2.2-4.8-4.8c0-2.7,2.2-4.8,4.8-4.8c2.7,0,4.8,2.2,4.8,4.8C19.2,204.6,17,206.7,14.3,206.7z M486.2,206.7c-2.7,0-4.8-2.2-4.8-4.8c0-2.72.2-4.8,4.8-4.8c2.7,0,4.8,2.2,4.8,4.8C491,204.6,488.8,206.7,486.2,206.7z");
-
+          this.display=  svg.path(this.g, "sim-bg", "M74.8159,3.55419A6.12,6.12,0,0,1,79.141,1.76372L182.07,1.76372A6.12,6.12,0,0,1,186.402,3.56026L259.14,76.4345A6.12,6.12,0,0,1,260.928,80.7581L260.928"+
+                                            ",184.141A5.04,5.04,0,0,1,259.453,187.703L186.185,261.041A6.12,6.12,0,0,1,181.855,262.836L78.9307,262.836A6.12001,6.12001,0,0,1,74.5985,261.039L1.78843"+
+                                            ",188.091A6.12,6.12,0,0,1,0,183.768L0,80.8366A6.12,6.12,0,0,1,1.79454,76.5072L74.8159,3.55419M209.574,39.7296a1.13386,1.13386,0,1,0,2.26772,0,1.13386,"+
+                                            "1.13386,0,1,0,-2.26772,0zM213.583,43.7384a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM217.591,47.7472a1.13386,1.13386,0,1,0,"+
+                                            "2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM221.6,51.756a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM35.7219,53.7327a1.13386,"+
+                                            "1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM39.7307,49.724a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM43.7394,"+
+                                            "45.7152a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM47.7482,41.7064a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,"+
+                                            "-2.26772,0zM86.058,223.308a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM93.258,223.308a1.13386,1.13386,0,1,0,2.26772,0,1.13386,"+
+                                            "1.13386,0,1,0,-2.26772,0zM100.458,223.308a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM107.658,223.308a1.13386,1.13386,0,1,0,2.26772,"+
+                                            "0,1.13386,1.13386,0,1,0,-2.26772,0zM114.858,223.308a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM122.058,223.308a1.13386,1.13386,"+
+                                            "0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM129.258,223.308a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM136.458,"+
+                                            "223.308a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM143.658,223.308a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,"+
+                                            "-2.26772,0zM150.858,223.308a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM158.058,223.308a1.13386,1.13386,0,1,0,2.26772,"+
+                                            "0,1.13386,1.13386,0,1,0,-2.26772,0zM165.258,223.308a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM172.458,223.308a1.13386,"+
+                                            "1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM172.458,230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM165.258,"+
+                                            "230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM158.058,230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,"+
+                                            "-2.26772,0zM150.858,230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM143.658,230.508a1.13386,1.13386,0,1,0,2.26772,0,"+
+                                            "1.13386,1.13386,0,1,0,-2.26772,0zM136.458,230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM129.258,230.508a1.13386,1.13386,"+
+                                            "0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM122.058,230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM114.858,"+
+                                            "230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM107.658,230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,"+
+                                            "0,-2.26772,0zM100.458,230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM93.258,230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,"+
+                                            "1.13386,0,1,0,-2.26772,0zM86.058,230.508a1.13386,1.13386,0,1,0,2.26772,0,1.13386,1.13386,0,1,0,-2.26772,0zM245.304,182.385a6.48,6.48,0,1,0,12.96,0,6.48,"+
+                                            "6.48,0,1,0,-12.96,0zM245.304,81.972a6.48,6.48,0,1,0,12.96,0,6.48,6.48,0,1,0,-12.96,0zM174.348,10.8318a6.48,6.48,0,1,0,12.96,0,6.48,6.48,0,1,0,-12.96,"+
+                                            "0zM2.664,82.044a6.48,6.48,0,1,0,12.96,0,6.48,6.48,0,1,0,-12.96,0zM2.664,182.556a6.48,6.48,0,1,0,12.96,0,6.48,6.48,0,1,0,-12.96,0zM73.656,253.692a6.48,"+
+                                            "6.48,0,1,0,12.96,0,6.48,6.48,0,1,0,-12.96,0zM174.069,253.763a6.48,6.48,0,1,0,12.96,0,6.48,6.48,0,1,0,-12.96,0zM73.872,10.8318a6.48,6.48,0,1,0,12.96,0,"+
+                                            "6.48,6.48,0,1,0,-12.96,0z");
             // script background
-            this.display = svg.path(this.g, "sim-display", "M333.8,310.3H165.9c-8.3,0-15-6.7-15-15V127.5c0-8.3,6.7-15,15-15h167.8c8.3,0,15,6.7,15,15v167.8C348.8,303.6,342.1,310.3,333.8,310.3z");
-
+         //   this.display = svg.path(this.g, "sim-display", "M333.8,310.3H165.9c-8.3,0-15-6.7-15-15V127.5c0-8.3,6.7-15,15-15h167.8c8.3,0,15,6.7,15,15v167.8C348.8,303.6,342.1,310.3,333.8,310.3z");
+         
+         this.display.style.transformOrigin = '0  0';
+         this.display.style.transform = `scale(${1.6})`;
+           
             this.logos = [];
+          /*
             this.logos.push(svg.child(this.g, "polygon", { class: "sim-theme", points: "115,56.7 173.1,0 115,0" }));
             this.logos.push(svg.path(this.g, "sim-theme", "M114.2,0H25.9C12.1,2.1,0,13.3,0,27.7v83.9L114.2,0z"));
+      */
+            /*
             this.logos.push(svg.child(this.g, "polygon", { class: "sim-theme", points: "173,27.9 202.5,0 173,0" }));
             this.logos.push(svg.child(this.g, "polygon", { class: "sim-theme", points: "54.1,242.4 54.1,274.1 22.4,274.1" }));
             this.logos.push(svg.child(this.g, "polygon", { class: "sim-theme", points: "446.2,164.6 446.2,132.8 477.9,132.8" }));
-
+*/
             // leds
             this.leds = [];
             this.ledsOuter = [];
-            let left = 154, top = 113, ledoffw = 46, ledoffh = 44;
-            for (let i = 0; i < 5; ++i) {
+            let left = 106, top = 100, ledoffw = 18, ledoffh = 19;
+            for (let i = 0; i < 12; ++i) {
                 let ledtop = i * ledoffh + top;
-                for (let j = 0; j < 5; ++j) {
+                for (let j = 0; j < 12; ++j) {
                     let ledleft = j * ledoffw + left;
-                    let k = i * 5 + j;
-                    this.ledsOuter.push(svg.child(this.g, "rect", { class: "sim-led-back", x: ledleft, y: ledtop, width: 10, height: 20, rx: 2, ry: 2 }));
-                    let led = svg.child(this.g, "rect", { class: "sim-led", x: ledleft - 2, y: ledtop - 2, width: 14, height: 24, rx: 3, ry: 3, title: `(${j},${i})` });
+                    let k = i * 12 + j;
+                    this.ledsOuter.push(svg.child(this.g, "rect", { class: "sim-led-back", x: ledleft, y: ledtop, width: 12, height: 8, rx: 2, ry: 2 }));
+                    let led = svg.child(this.g, "rect", { class: "sim-led", x: ledleft - 2, y: ledtop - 2, width: 14, height: 10, rx: 3, ry: 3, title: `(${j},${i})` });
                     svg.filter(led, `url(#ledglow)`)
                     this.leds.push(led);
                 }
@@ -765,33 +805,40 @@ namespace pxsim.visuals {
 
             // head
             this.head = <SVGGElement>svg.child(this.g, "g", { class: "sim-head no-drag" });
-            svg.child(this.head, "circle", { cx: 258, cy: 75, r: 100, fill: "transparent" })
-            this.logos.push(svg.path(this.head, "sim-theme sim-theme-glow", "M269.9,50.2L269.9,50.2l-39.5,0v0c-14.1,0.1-24.6,10.7-24.6,24.8c0,13.9,10.4,24.4,24.3,24.7v0h39.6c14.2,0,24.8-10.6,24.8-24.7C294.5,61,284,50.3,269.9,50.2 M269.7,89.2L269.7,89.2l-39.3,0c-7.7-0.1-14-6.4-14-14.2c0-7.8,6.4-14.2,14.2-14.2h39.1c7.8,0,14.2,6.4,14.2,14.2C283.9,82.9,277.5,89.2,269.7,89.2"));
-            this.logos.push(svg.path(this.head, "sim-theme sim-theme-glow", "M230.6,69.7c-2.9,0-5.3,2.4-5.3,5.3c0,2.9,2.4,5.3,5.3,5.3c2.9,0,5.3-2.4,5.3-5.3C235.9,72.1,233.5,69.7,230.6,69.7"));
-            this.logos.push(svg.path(this.head, "sim-theme sim-theme-glow", "M269.7,80.3c2.9,0,5.3-2.4,5.3-5.3c0-2.9-2.4-5.3-5.3-5.3c-2.9,0-5.3,2.4-5.3,5.3C264.4,77.9,266.8,80.3,269.7,80.3"));
-            this.headText = <SVGTextElement>svg.child(this.g, "text", { x: 310, y: 100, class: "sim-text" })
+          //  svg.child(this.head, "circle", { cx: 258, cy: 75, r: 100, fill: "transparent" })
+         //   this.logos.push(svg.path(this.head, "sim-theme sim-theme-glow", "M269.9,50.2L269.9,50.2l-39.5,0v0c-14.1,0.1-24.6,10.7-24.6,24.8c0,13.9,10.4,24.4,24.3,24.7v0h39.6c14.2,0,24.8-10.6,24.8-24.7C294.5,61,284,50.3,269.9,50.2 M269.7,89.2L269.7,89.2l-39.3,0c-7.7-0.1-14-6.4-14-14.2c0-7.8,6.4-14.2,14.2-14.2h39.1c7.8,0,14.2,6.4,14.2,14.2C283.9,82.9,277.5,89.2,269.7,89.2"));
+         //   this.logos.push(svg.path(this.head, "sim-theme sim-theme-glow", "M230.6,69.7c-2.9,0-5.3,2.4-5.3,5.3c0,2.9,2.4,5.3,5.3,5.3c2.9,0,5.3-2.4,5.3-5.3C235.9,72.1,233.5,69.7,230.6,69.7"));
+         //   this.logos.push(svg.path(this.head, "sim-theme sim-theme-glow", "M269.7,80.3c2.9,0,5.3-2.4,5.3-5.3c0-2.9-2.4-5.3-5.3-5.3c-2.9,0-5.3,2.4-5.3,5.3C264.4,77.9,266.8,80.3,269.7,80.3"));
+           // this.headText = <SVGTextElement>svg.child(this.g, "text", { x: 310, y: 100, class: "sim-text" })
 
             // https://www.microbit.co.uk/device/pins
             // P0, P1, P2
+           /*
             this.pins = [
                 "M16.5,341.2c0,0.4-0.1,0.9-0.1,1.3v60.7c4.1,1.7,8.6,2.7,12.9,2.7h34.4v-64.7h0.3c0,0,0-0.1,0-0.1c0-13-10.6-23.6-23.7-23.6C27.2,317.6,16.5,328.1,16.5,341.2z M21.2,341.6c0-10.7,8.7-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3c0,10.7-8.6,19.3-19.3,19.3C29.9,360.9,21.2,352.2,21.2,341.6z",
                 "M139.1,317.3c-12.8,0-22.1,10.3-23.1,23.1V406h46.2v-65.6C162.2,327.7,151.9,317.3,139.1,317.3zM139.3,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C158.6,351.5,150,360.1,139.3,360.1z",
                 "M249,317.3c-12.8,0-22.1,10.3-23.1,23.1V406h46.2v-65.6C272.1,327.7,261.8,317.3,249,317.3z M249.4,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C268.7,351.5,260.1,360.1,249.4,360.1z"
             ].map((p, pi) => svg.path(this.g, "sim-pin sim-pin-touch", p));
+*/
+this.pins= [];
 
             // P3
+            /*
             this.pins.push(svg.path(this.g, "sim-pin", "M0,357.7v19.2c0,10.8,6.2,20.2,14.4,25.2v-44.4H0z"));
-
+*/
             pins4onXs.forEach(x => {
                 this.pins.push(svg.child(this.g, "rect", { x: x, y: 356.7, width: 10, height: 50, class: "sim-pin" }));
             })
+ 
+            
+/*
             this.pins.push(svg.path(this.g, "sim-pin", "M483.6,402c8.2-5,14.4-14.4,14.4-25.1v-19.2h-14.4V402z"));
             this.pins.push(svg.path(this.g, "sim-pin", "M359.9,317.3c-12.8,0-22.1,10.3-23.1,23.1V406H383v-65.6C383,327.7,372.7,317.3,359.9,317.3z M360,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C379.3,351.5,370.7,360.1,360,360.1z"));
             this.pins.push(svg.path(this.g, "sim-pin", "M458,317.6c-13,0-23.6,10.6-23.6,23.6c0,0,0,0.1,0,0.1h0V406H469c4.3,0,8.4-1,12.6-2.7v-60.7c0-0.4,0-0.9,0-1.3C481.6,328.1,471,317.6,458,317.6z M457.8,360.9c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C477.1,352.2,468.4,360.9,457.8,360.9z"));
 
             this.pins.forEach((p, i) => svg.hydrate(p, { title: pinTitles[i] }));
-
-            this.pinGradients = this.pins.map((pin, i) => {
+*/
+           this.pinGradients = this.pins.map((pin, i) => {
                 let gid = "gradient-pin-" + i
                 let lg = svg.linearGradient(this.defs, gid)
                 pin.setAttribute("fill", `url(#${gid})`);
@@ -820,12 +867,18 @@ namespace pxsim.visuals {
 
             outerBtn(25.9, 176.4, "A");
             this.buttons.push(svg.path(this.g, "sim-button", "M69.7,203.5c0,8.7-7,15.7-15.7,15.7s-15.7-7-15.7-15.7c0-8.7,7-15.7,15.7-15.7S69.7,194.9,69.7,203.5"));
-            outerBtn(418.1, 176.4, "B");
+            outerBtn(380, 176.4, "B");
             this.buttons.push(svg.path(this.g, "sim-button", "M461.9,203.5c0,8.7-7,15.7-15.7,15.7c-8.7,0-15.7-7-15.7-15.7c0-8.7,7-15.7,15.7-15.7C454.9,187.8,461.9,194.9,461.9,203.5"));
             outerBtn(417, 250, "A+B");
             this.buttons.push(svg.child(this.g, "circle", { class: "sim-button", cx: 446, cy: 278, r: 16.5 }));
             (<any>this.buttonsOuter[2]).style.visibility = "hidden";
-            (<any>this.buttons[2]).style.visibility = "hidden";
+            (<any>this.buttonsOuter[0]).style.transformOrigin = '50%  50%';
+            (<any>this.buttonsOuter[0]).style.transform = `scale(${0.5})`;
+            
+
+           
+
+        /*
 
             svg.path(this.g, "sim-label", "M35.7,376.4c0-2.8,2.1-5.1,5.5-5.1c3.3,0,5.5,2.4,5.5,5.1v4.7c0,2.8-2.2,5.1-5.5,5.1c-3.3,0-5.5-2.4-5.5-5.1V376.4zM43.3,376.4c0-1.3-0.8-2.3-2.2-2.3c-1.3,0-2.1,1.1-2.1,2.3v4.7c0,1.2,0.8,2.3,2.1,2.3c1.3,0,2.2-1.1,2.2-2.3V376.4z");
             svg.path(this.g, "sim-label", "M136.2,374.1c2.8,0,3.4-0.8,3.4-2.5h2.9v14.3h-3.4v-9.5h-3V374.1z");
@@ -839,6 +892,7 @@ namespace pxsim.visuals {
             svg.path(this.g, "sim-label", "M444.4,378.3h7.4v2.5h-1.5c-0.6,3.3-3,5.5-7.1,5.5c-4.8,0-7.5-3.5-7.5-7.5c0-3.9,2.8-7.5,7.5-7.5c3.8,0,6.4,2.3,6.6,5h-3.5c-0.2-1.1-1.4-2.2-3.1-2.2c-2.7,0-4.1,2.3-4.1,4.7c0,2.5,1.4,4.7,4.4,4.7c2,0,3.2-1.2,3.4-2.7h-2.5V378.3z")
             svg.path(this.g, "sim-label", "M461.4,380.9v-9.3h3.3v14.3h-3.5l-5.2-9.2v9.2h-3.3v-14.3h3.5L461.4,380.9z")
             svg.path(this.g, "sim-label", "M472.7,371.6c4.8,0,7.5,3.5,7.5,7.2s-2.7,7.2-7.5,7.2h-5.3v-14.3H472.7z M470.8,374.4v8.6h1.8c2.7,0,4.2-2.1,4.2-4.3s-1.6-4.3-4.2-4.3H470.8z")
+    */
         }
 
         private attachEvents() {
@@ -894,6 +948,7 @@ namespace pxsim.visuals {
                 }
             }, false);
 
+           /*
             this.pins.forEach((pin, index) => {
                 if (!this.board.edgeConnectorState.pins[index]) return;
                 let pt = this.element.createSVGPoint();
@@ -952,7 +1007,9 @@ namespace pxsim.visuals {
                             this.updatePin(pin, index);
                         }
                     });
-            })
+            }) 
+            */
+            /*
             this.pins.slice(0, 3).forEach((btn, index) => {
                 btn.addEventListener(pointerEvents.down, ev => {
                     let state = this.board;
@@ -977,7 +1034,7 @@ namespace pxsim.visuals {
                     this.board.bus.queue(state.edgeConnectorState.pins[index].id, DAL.MICROBIT_BUTTON_EVT_CLICK);
                 });
             })
-
+*/
             let bpState = this.board.buttonPairState;
             let stateButtons = [bpState.aBtn, bpState.bBtn, bpState.abBtn];
             this.buttonsOuter.slice(0, 2).forEach((btn, index) => {

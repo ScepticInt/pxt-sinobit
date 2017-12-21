@@ -1,5 +1,5 @@
 namespace pxsim.visuals {
-    const MB_STYLE = `
+     const MB_STYLE = `
         svg.sim {
             box-sizing: border-box;
             width: 100%;
@@ -179,6 +179,8 @@ namespace pxsim.visuals {
     stroke: #10C8CD !important;
 }
     `
+    
+   
     const pins4onXs = [66.7, 79.1, 91.4, 103.7, 164.3, 176.6, 188.9, 201.3, 213.6, 275.2, 287.5, 299.8, 312.1, 324.5, 385.1, 397.4, 409.7, 422];
     const pins4onMids = pins4onXs.map(x => x + 5);
     const littlePinDist = pins4onMids[1] - pins4onMids[0];
@@ -745,6 +747,7 @@ namespace pxsim.visuals {
             for (let i = 0; i < 3; ++i) svg.child(merge, "feMergeNode", { in: "glow" })
 
             // outline
+
           this.display=  svg.path(this.g, "sim-bg", "M74.8159,3.55419A6.12,6.12,0,0,1,79.141,1.76372L182.07,1.76372A6.12,6.12,0,0,1,186.402,3.56026L259.14,76.4345A6.12,6.12,0,0,1,260.928,80.7581L260.928"+
                                             ",184.141A5.04,5.04,0,0,1,259.453,187.703L186.185,261.041A6.12,6.12,0,0,1,181.855,262.836L78.9307,262.836A6.12001,6.12001,0,0,1,74.5985,261.039L1.78843"+
                                             ",188.091A6.12,6.12,0,0,1,0,183.768L0,80.8366A6.12,6.12,0,0,1,1.79454,76.5072L74.8159,3.55419M209.574,39.7296a1.13386,1.13386,0,1,0,2.26772,0,1.13386,"+
@@ -772,21 +775,13 @@ namespace pxsim.visuals {
                                             "6.48,0,1,0,12.96,0,6.48,6.48,0,1,0,-12.96,0zM174.069,253.763a6.48,6.48,0,1,0,12.96,0,6.48,6.48,0,1,0,-12.96,0zM73.872,10.8318a6.48,6.48,0,1,0,12.96,0,"+
                                             "6.48,6.48,0,1,0,-12.96,0z");
             // script background
-         //   this.display = svg.path(this.g, "sim-display", "M333.8,310.3H165.9c-8.3,0-15-6.7-15-15V127.5c0-8.3,6.7-15,15-15h167.8c8.3,0,15,6.7,15,15v167.8C348.8,303.6,342.1,310.3,333.8,310.3z");
+            this.display = svg.path(this.g, "sim-display", "M333.8,310.3H165.9c-8.3,0-15-6.7-15-15V127.5c0-8.3,6.7-15,15-15h167.8c8.3,0,15,6.7,15,15v167.8C348.8,303.6,342.1,310.3,333.8,310.3z");
          
-         this.display.style.transformOrigin = '0  0';
-         this.display.style.transform = `scale(${1.6})`;
+      //   this.display.style.transformOrigin = '0  0';
+      //   this.display.style.transform = `scale(${1.6})`;
            
             this.logos = [];
-          /*
-            this.logos.push(svg.child(this.g, "polygon", { class: "sim-theme", points: "115,56.7 173.1,0 115,0" }));
-            this.logos.push(svg.path(this.g, "sim-theme", "M114.2,0H25.9C12.1,2.1,0,13.3,0,27.7v83.9L114.2,0z"));
-      */
-            /*
-            this.logos.push(svg.child(this.g, "polygon", { class: "sim-theme", points: "173,27.9 202.5,0 173,0" }));
-            this.logos.push(svg.child(this.g, "polygon", { class: "sim-theme", points: "54.1,242.4 54.1,274.1 22.4,274.1" }));
-            this.logos.push(svg.child(this.g, "polygon", { class: "sim-theme", points: "446.2,164.6 446.2,132.8 477.9,132.8" }));
-*/
+
             // leds
             this.leds = [];
             this.ledsOuter = [];
@@ -847,33 +842,107 @@ this.pins= [];
 
             this.pinTexts = [67, 165, 275].map(x => <SVGTextElement>svg.child(this.g, "text", { class: "sim-text-pin", x: x, y: 345 }));
 
+//    let b = svg.child(this.g, "g", { class: "sim-button-group" });
+ //   b.innerHTML += svbg;
+
+            let usbtop = svg.child(this.g, "g", { class: "sim-button-group" });
+          usbtop.innerHTML+=
+         ' <g xmlns="http://www.w3.org/2000/svg" id="47642-0001" transform="matrix(1, 0, 0, 1, 121.717, 4.2692)">'+
+         ' <g transform="matrix(-1, 0, 0, -1, 22.677, 16.654)" id="g20031">'+
+          '  <g id="g20033">'+
+            '    <rect width="22.677" y="7.157" x="0" fill="#B4B4B4" height="3.969" id="rect20035"/>'+
+             '   <rect width="0.567" x="11.055" fill="#DCDCDC" height="3.402" id="rect20037"/>'+
+             '   <rect width="0.567" y="0" x="12.898" fill="#DCDCDC" height="3.402" id="rect20039"/>'+
+             '   <rect width="0.567" y="0" x="14.74" fill="#DCDCDC" height="3.402" id="rect20041"/>'+
+             '   <rect width="0.567" y="0" x="9.21298" fill="#DCDCDC" height="3.402" id="rect20043"/>'+
+              '  <rect width="0.567" y="0" x="7.36999" fill="#DCDCDC" height="3.402" id="rect20045"/>'+
+             '   <rect width="14.173" y="1.489" x="4.252" fill="#B4B4B4" height="0.709" id="rect20047"/>'+
+             '   <rect width="14.173" y="1.771" x="4.252" height="2.976" id="rect20049"/>'+
+             '   <polygon fill="#DCDCDC" points="17.008,1.347,17.008,3.473,14.74,3.473,14.74,4.182,13.323,4.182,13.323,1.63,9.35402,1.63,9.35402,4.182,7.93699,4.182,7.93699,3.473,5.669,3.473,5.669,1.347,0.567,1.347,0.567,14.953,22.11,14.953,22.11,1.347" id="polygon20051"/>'+
+             '   <polygon points="5.811,12.119,3.827,12.119,4.11,7.86701,5.527,7.86701" id="polygon20053"/>'+
+             '   <polygon points="18.85,12.119,16.866,12.119,17.149,7.86701,18.567,7.86701" id="polygon20055"/>'+
+             '   <polygon fill="#F0F0F0" points="20.976,16.654,1.701,16.653,1.134,14.953,21.543,14.953" id="polygon20057"/>'+
+             '   <polygon fill="#B4B4B4" points="0.567,16.653,0,16.653,0.567,14.953,1.134,14.953" id="polygon20059"/>'+
+             '   <polygon fill="#B4B4B4" points="22.677,16.654,22.11,16.654,21.543,14.953,22.11,14.953" id="polygon20061"/>'+
+            ' </g>'
+            ' </g>'
+          ' </g>'
             this.buttonsOuter = []; this.buttons = [];
 
-            const outerBtn = (left: number, top: number, label: string) => {
+
+
+            const outerBtn = (left: number, top: number, label: string,index:number) => {
                 const btnr = 4;
                 const btnw = 56.2;
                 const btnn = 6;
                 const btnnm = 10
                 let btng = svg.child(this.g, "g", { class: "sim-button-group" });
+
                 accessibility.makeFocusable(btng);
                 accessibility.setAria(btng, "button", label);
                 this.buttonsOuter.push(btng);
+              
+             //   btng.innerHTML +=  '<g xmlns="http://www.w3.org/2000/svg" id="g19978" transform="matrix(1.20493, 0, 0, 1.20507, 0, -4.35976)">'+
+                let btn = [
+                    '<g xmlns="http://www.w3.org/2000/svg" id="g19968" transform="matrix(1, 0, 0, 1, 26.9942, 103.631)">'+
+                    '<g transform="matrix(0, 1, -1, 0, 17.008, 0)" id="g19970">'+
+                        '<g xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" i:extraneous="self" id="g19974">'+
+                          '<sodipodi:namedview xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" bordercolor="#666666" guidetolerance="10" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:document-units="mm" fit-margin-left="0" showgrid="false" inkscape:current-layer="Ebene_1" window-width="1745" cx="-10.948433" inkscape:window-x="0" id="namedview19976" gridtolerance="10" fit-margin-right="0" borderopacity="1" objecttolerance="10" zoom="9.9966114" inkscape:window-height="650" window-maximized="0" inkscape:cy="13.840712" inkscape:pageopacity="0" fit-margin-bottom="0" window-y="0" fit-margin-top="0" pageshadow="2" units="mm" pagecolor="#ffffff"/>'+
+                          '<g id="g19978" transform="matrix(1.20493, 0, 0, 1.20507, 0, -4.35976)">'+
+                            '<path xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:connector-curvature="0" fill="#B4B4B4" d="M14.113,16.581c0,0.634,-0.517,1.15,-1.15,1.15L1.15,17.731c-0.632,0,-1.15,-0.517,-1.15,-1.15L0,4.768c0.002,-0.634,0.518,-1.15,1.15,-1.15l11.814,0c0.634,0,1.15,0.517,1.15,1.15L14.113,16.581C14.113,16.581,14.113,16.581,14.113,16.581z" id="path19980"/>'+
+                            '<circle cx="2.056" cy="5.674" fill="#505050" r="1.223" id="circle19982"/>'+
+                            '<circle cx="12.093" cy="5.695" fill="#505050" r="1.223" id="circle19984"/>'+
+                            '<circle cx="12.072" cy="15.731" fill="#505050" r="1.222" id="circle19986"/>'+
+                            '<circle cx="2.036" cy="15.709" fill="#505050" r="1.222" id="circle19988"/>'+
+                            '<circle cx="7.057" cy="10.675" fill="#3F3F3F" r="4.116" id="circle19990"/>'+
+                            '<circle cx="7.057" cy="10.675" fill="#505050" r="4.116" id="circle19992"/>'+
+                            '<circle cx="7.063" cy="10.699" fill="#282828" r="3.53" id="circle19994"/>'+
+                          '</g>'+
+                        '</g>'+
+                  '</g>'+
+                  '</g>',
+            
+      '<g xmlns="http://www.w3.org/2000/svg" id="switch" transform="matrix(1, 0, 0, 1, 218.87, 103.064)">'+
+      ' <g transform="matrix(0, -1, 1, 0, 0, 17.008)" id="g19952">'+
+      '     <g xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" i:extraneous="self" id="g19956">'+
+      '       <sodipodi:namedview xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" bordercolor="#666666" guidetolerance="10" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:document-units="mm" fit-margin-left="0" showgrid="false" inkscape:current-layer="Ebene_1" window-width="1745" cx="-10.948433" inkscape:window-x="0" id="namedview38" gridtolerance="10" fit-margin-right="0" borderopacity="1" objecttolerance="10" zoom="9.9966114" inkscape:window-height="650" window-maximized="0" inkscape:cy="13.840712" inkscape:pageopacity="0" fit-margin-bottom="0" window-y="0" fit-margin-top="0" pageshadow="2" units="mm" pagecolor="#ffffff"/>'+
+      '       <g id="g4149" transform="matrix(1.20493, 0, 0, 1.20507, 0, -4.35976)">'+
+      '         <path xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:connector-curvature="0" fill="#B4B4B4" d="M14.113,16.581c0,0.634,-0.517,1.15,-1.15,1.15L1.15,17.731c-0.632,0,-1.15,-0.517,-1.15,-1.15L0,4.768c0.002,-0.634,0.518,-1.15,1.15,-1.15l11.814,0c0.634,0,1.15,0.517,1.15,1.15L14.113,16.581C14.113,16.581,14.113,16.581,14.113,16.581z" id="path5"/>'+
+      '         <circle cx="2.056" cy="5.674" fill="#505050" r="1.223" id="circle7"/>'+
+      '         <circle cx="12.093" cy="5.695" fill="#505050" r="1.223" id="circle9"/>'+
+      '         <circle cx="12.072" cy="15.731" fill="#505050" r="1.222" id="circle11"/>'+
+      '         <circle cx="2.036" cy="15.709" fill="#505050" r="1.222" id="circle13"/>'+
+      '         <circle cx="7.057" cy="10.675" fill="#3F3F3F" r="4.116" id="circle15"/>'+
+      '         <circle cx="7.057" cy="10.675" fill="#505050" r="4.116" id="circle22"/>'+
+      '         <circle cx="7.063" cy="10.699" fill="#282828" r="3.53" id="circle26"/>'+
+      '       </g>'+
+      '     </g>'+
+      '</g>'+
+    ' </g>' 
+            ];
+
+           
+            
+              btng.innerHTML+=btn[index];
+                 /*
                 svg.child(btng, "rect", { class: "sim-button-outer", x: left, y: top, rx: btnr, ry: btnr, width: btnw, height: btnw });
                 svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnnm, r: btnn });
                 svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnnm, cy: top + btnw - btnnm, r: btnn });
                 svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnw - btnnm, r: btnn });
                 svg.child(btng, "circle", { class: "sim-button-nut", cx: left + btnw - btnnm, cy: top + btnnm, r: btnn });
+           */
             }
 
-            outerBtn(25.9, 176.4, "A");
+
+            outerBtn(25.9, 176.4, "A",0);
             this.buttons.push(svg.path(this.g, "sim-button", "M69.7,203.5c0,8.7-7,15.7-15.7,15.7s-15.7-7-15.7-15.7c0-8.7,7-15.7,15.7-15.7S69.7,194.9,69.7,203.5"));
-            outerBtn(380, 176.4, "B");
+            outerBtn(380, 176.4, "B",1);
             this.buttons.push(svg.path(this.g, "sim-button", "M461.9,203.5c0,8.7-7,15.7-15.7,15.7c-8.7,0-15.7-7-15.7-15.7c0-8.7,7-15.7,15.7-15.7C454.9,187.8,461.9,194.9,461.9,203.5"));
-            outerBtn(417, 250, "A+B");
+            outerBtn(417, 250, "A+B",1);
             this.buttons.push(svg.child(this.g, "circle", { class: "sim-button", cx: 446, cy: 278, r: 16.5 }));
             (<any>this.buttonsOuter[2]).style.visibility = "hidden";
-            (<any>this.buttonsOuter[0]).style.transformOrigin = '50%  50%';
-            (<any>this.buttonsOuter[0]).style.transform = `scale(${0.5})`;
+           // (<any>this.buttonsOuter[0]).style.transformOrigin = '50%  50%';
+           // (<any>this.buttonsOuter[0]).style.transform = `scale(${0.5})`;
             
 
            

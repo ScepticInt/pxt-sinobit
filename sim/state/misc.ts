@@ -1,4 +1,6 @@
 namespace pxsim {
+
+   
     /**
      * Error codes used in the micro:bit runtime.
     */

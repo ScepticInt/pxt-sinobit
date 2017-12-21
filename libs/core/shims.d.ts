@@ -811,7 +811,7 @@ declare namespace serial {
     function writeBuffer(buffer: Buffer): void;
 
     /**
-     * Reads multiple characters from the receive buffer and fills a user buffer.
+     * Read multiple characters from the receive buffer. Pause until enough characters are present.
      * @param length default buffer length, eg: 64
      */
     //% blockId=serial_readbuffer block="serial|read buffer %length"
@@ -819,20 +819,28 @@ declare namespace serial {
     function readBuffer(length: number): Buffer;
 
     /**
-     * Dynamically configuring the serial instance to use pins other than USBTX and USBRX.
-     * @param tx the new transmission pins, eg: SerialPin.P0
+     * Set the serial input and output to use pins instead of the USB connection.
+     * @param tx the new transmission pin, eg: SerialPin.P0
      * @param rx the new reception pin, eg: SerialPin.P1
      * @param rate the new baud rate. eg: 115200
      */
     //% weight=10
-    //% help=serial/redirect-to
+    //% help=serial/redirect
     //% blockId=serial_redirect block="serial|redirect to|TX %tx|RX %rx|at baud rate %rate"
     //% blockExternalInputs=1
     //% tx.fieldEditor="gridpicker" tx.fieldOptions.columns=3
     //% tx.fieldOptions.tooltips="false"
     //% rx.fieldEditor="gridpicker" rx.fieldOptions.columns=3
-    //% rx.fieldOptions.tooltips="false" shim=serial::redirect
+    //% rx.fieldOptions.tooltips="false"
+    //% blockGap=8 shim=serial::redirect
     function redirect(tx: SerialPin, rx: SerialPin, rate: BaudRate): void;
+
+    /**
+     * Direct the serial input and output to use the USB connection.
+     */
+    //% weight=9 help=serial/redirect-to-usb
+    //% blockId=serial_redirect_to_usb block="serial|redirect to USB" shim=serial::redirectToUSB
+    function redirectToUSB(): void;
 }
 
 

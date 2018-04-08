@@ -14,12 +14,15 @@ You have been warned!
 Clone this repo:
 
 $ git clone https://github.com/ScepticInt/pxt-sinobit.git
+
 $ cd pxt-sinobit
 
-Install PXT: 
+Install PXT:
+
 $ npm install -g pxt
 
 Start pxt
+
 $ pxt serve
 
 pxt should start a browser and load the Sino:Bit workspace.

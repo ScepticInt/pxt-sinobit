@@ -1,0 +1,11 @@
+{
+    "name": "pxt-microbit-app",
+    "version": "0.0.0",
+    "description": "Auto-generated. Do not edit.",
+    "license": "n/a",
+    "dependencies": {
+        "microbit": "lancaster-university/microbit#v2.0.0-rc11"
+    },
+    "targetDependencies": {},
+    "bin": "./source"
+}

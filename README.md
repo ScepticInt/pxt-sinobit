@@ -5,11 +5,14 @@ This is a WORK IN PROGRESS port for Sino:Bit.
 There's probably a lot of things that need to be fixed and refactored.
 
 I post this here as WORK IN PROGRESS and anyone who wants to help is *very* welcome to do so.
+
 It's been awhile since i was working on this so there are probably a lot of embarrassing mistakes left in the code.
+
 You have been warned!
 
-##To run this on your computer,
+## To run this on your computer,
 Clone this repo:
+
 $ git clone https://github.com/ScepticInt/pxt-sinobit.git
 $ cd pxt-sinobit
 
